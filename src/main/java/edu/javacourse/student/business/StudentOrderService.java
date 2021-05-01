@@ -2,10 +2,7 @@ package edu.javacourse.student.business;
 
 import edu.javacourse.student.dao.StreetRepository;
 import edu.javacourse.student.dao.StudentOrderRepository;
-import edu.javacourse.student.domain.Address;
-import edu.javacourse.student.domain.Person;
-import edu.javacourse.student.domain.Street;
-import edu.javacourse.student.domain.StudentOrder;
+import edu.javacourse.student.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +30,8 @@ public class StudentOrderService {
         dao.save(so);
     }
 
-    private Person buildPerson(boolean wife) {
-        Person p = new Person();
+    private Adult buildPerson(boolean wife) {
+        Adult p = new Adult();
         p.setDateOfBirth(LocalDate.now());
         Address a = new Address();
         a.setPostCode("190000");
@@ -48,10 +45,16 @@ public class StudentOrderService {
             p.setSurName("Рюрик");
             p.setGivenName("Марфа");
             p.setPatronymic("Васильевна");
+            p.setPassportSeries("WIFE_S");
+            p.setPassportNumber("WIFE_N");
+            p.setIssueDate(LocalDate.now());
         } else {
             p.setSurName("Рюрик");
             p.setGivenName("Иван");
             p.setPatronymic("Васильевич");
+            p.setPassportSeries("HUSBAND_S");
+            p.setPassportNumber("HUSBAND_N");
+            p.setIssueDate(LocalDate.now());
         }
         return p;
     }
