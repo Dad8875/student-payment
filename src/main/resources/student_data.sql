@@ -37,8 +37,7 @@ INSERT INTO jc_country_struct (area_id, area_name) VALUES
 ('020020020001', 'Край Область 2 Район 2 Поселение 1'),
 ('020020020002', 'Край Область 2 Район 2 Поселение 2');
 
-INSERT INTO jc_passport_office (p_office_id, p_office_area_id, p_office_name)
-VALUES
+INSERT INTO jc_passport_office (p_office_id, p_office_area_id, p_office_name) VALUES
 (1, '010010000000', 'Паспортный стол района 1 города'),
 (2, '010020000000', 'Паспортный стол 1 района 2 города'),
 (3, '010020000000', 'Паспортный стол 2 района 2 города'),
@@ -56,3 +55,7 @@ INSERT INTO jc_register_office (r_office_id, r_office_area_id, r_office_name) VA
 (5, '020010020002', 'ЗАГС Область 1 поселения 2'),
 (6, '020020010000', 'ЗАГС Область 2 район 1'),
 (7, '020020020000', 'ЗАГС Область 2 район 2');
+
+INSERT INTO jc_order_status(status_id, status_name) VALUES
+(1, 'Started'),
+(2, 'Completed');
