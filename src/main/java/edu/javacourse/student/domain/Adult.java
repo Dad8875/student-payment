@@ -66,4 +66,5 @@ public class Adult extends Person {
     public void setStudentNumber(String studentNumber) {
         this.studentNumber = studentNumber;
     }
+
 }
