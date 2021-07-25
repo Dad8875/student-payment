@@ -89,7 +89,16 @@ public class StudentOrderService {
     private StudentOrderChild buildChild(StudentOrder so) {
         StudentOrderChild p = new StudentOrderChild();
         p.setStudentOrder(so);
-        p.setDateOfBirth(LocalDate.now());
+
+        Child child = new Child();
+        child.setDateOfBirth(LocalDate.now());
+        child.setSurName("Рюрик");
+        child.setGivenName("Дмитрий");
+        child.setPatronymic("Иванович");
+        child.setCertificateDate(LocalDate.now());
+        child.setCertificateNumber("BIRTH N");
+        child.setRegisterOffice(daoRegister.getOne(1l));
+
         Address a = new Address();
         a.setPostCode("190000");
         a.setBuilding("21");
@@ -97,14 +106,9 @@ public class StudentOrderService {
         a.setApartment("199");
         Street one = daoStreet.getOne(1L);
         a.setStreet(one);
-        p.setAddress(a);
+        child.setAddress(a);
 
-        p.setSurName("Рюрик");
-        p.setGivenName("Дмитрий");
-        p.setPatronymic("Иванович");
-        p.setCertificateDate(LocalDate.now());
-        p.setCertificateNumber("BIRTH N");
-        p.setRegisterOffice(daoRegister.getOne(1l));
+        p.setChild(child);
 
         return p;
     }
@@ -113,6 +117,6 @@ public class StudentOrderService {
     public void testGet() {
         List<StudentOrder> sos = dao.findAll();
         LOGGER.info(sos.get(0).getWife().getGivenName());
-        LOGGER.info(sos.get(0).getChildren().get(0).getGivenName());
+        LOGGER.info(sos.get(0).getChildren().get(0).getChild().getGivenName());
     }
 }
